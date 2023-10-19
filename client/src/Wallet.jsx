@@ -3,13 +3,19 @@ import { toHex } from "ethereum-cryptography/utils";
 
 import server from "./server";
 
-function Wallet({ address, setAddress, balance, setBalance, privateKey, setPrivateKey }) {
+function Wallet({
+  address,
+  setAddress,
+  balance,
+  setBalance,
+  privateKey,
+  setPrivateKey,
+}) {
   async function onChange(evt) {
     const privateKey = evt.target.value;
     setPrivateKey(privateKey);
 
     if (privateKey) {
-
     }
 
     const address = toHex(secp256k1.getPublicKey(privateKey));
@@ -26,25 +32,22 @@ function Wallet({ address, setAddress, balance, setBalance, privateKey, setPriva
   }
 
   return (
-      <div className="container wallet">
-        <h1>Your Wallet</h1>
+    <div className="container wallet">
+      <h1>Your Wallet</h1>
 
-        {/*<label>*/}
-        {/*  Wallet Address*/}
-        {/*  <input placeholder="Type an address, for example: 0x1" value={address} onChange={onChange}></input>*/}
-        {/*</label>*/}
+      <label>
+        Private Key
+        <input
+          placeholder="Type in a private key"
+          value={privateKey}
+          onChange={onChange}
+        ></input>
+      </label>
 
-        <label>
-          Private Key
-          <input placeholder="Type in a private key" value={privateKey} onChange={onChange}></input>
-        </label>
+      <label>Address: {address.slice(0, 10)}...</label>
 
-        <label>
-          Address: {address.slice(0, 10)}...
-        </label>
-
-        <div className="balance">Balance: {balance}</div>
-      </div>
+      <div className="balance">Balance: {balance}</div>
+    </div>
   );
 }
 

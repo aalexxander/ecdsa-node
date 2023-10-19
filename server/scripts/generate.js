@@ -3,8 +3,8 @@ const { toHex } = require("ethereum-cryptography/utils");
 const { keccak256 } = require("ethereum-cryptography/keccak");
 
 function getAddress(publicKey) {
-    const hash = keccak256(publicKey.slice(1));
-    return hash.slice(-20);
+  const hash = keccak256(publicKey.slice(1));
+  return hash.slice(-20);
 }
 
 const privateKey = secp256k1.utils.randomPrivateKey();

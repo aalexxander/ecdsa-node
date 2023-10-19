@@ -10,19 +10,19 @@ function App() {
 
   return (
     <div className="app">
-        <Wallet
-            balance={balance}
-            setBalance={setBalance}
-            privateKey={privateKey}
-            setPrivateKey={setPrivateKey}
-            address={address}
-            setAddress={setAddress}
-        />
-        <Transfer
-            setBalance={setBalance}
-            address={address}
-            privateKey={privateKey}
-        />
+      <Wallet
+        balance={balance}
+        setBalance={setBalance}
+        privateKey={privateKey}
+        setPrivateKey={setPrivateKey}
+        address={address}
+        setAddress={setAddress}
+      />
+      <Transfer
+        setBalance={setBalance}
+        address={address}
+        privateKey={privateKey}
+      />
     </div>
   );
 }
